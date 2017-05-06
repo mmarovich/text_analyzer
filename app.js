@@ -1,7 +1,15 @@
+// takes the text and seperates the words
+// giving us the number of total words.
+
 function wordCount(string){
   var words = string.split(" ");
   return words.length;
 }
+
+// This makes all letters lowercase as to not distinguish
+// the same word as two separate words.  It gets rid of
+// the periods using regular expression, and splits up the 
+// words. Then generates an object counting each unique word.
 
 function wordCountUnique(string){
   var words = {}
@@ -14,6 +22,9 @@ function wordCountUnique(string){
   return Object.keys(words).length;
 }
 
+// takes the total letters and divides it by how many
+// words, giving the average word length.
+
 function avWordLength(string){
   sum = 0;
   var words = {}
@@ -25,6 +36,10 @@ function avWordLength(string){
   })
   return sum / allWords.length; 
 }
+
+// this uses a reqular expression to find the end
+// of each sentence and then divides word length 
+// by sentence length.
 
 function avSentLength(string){
   var eachSentence = string.replace(/(\.+|\:|\!|\?)(\"*|\'*|\)*|}*|]*)(\s|\n|\r|\r\n)/gm, "$1$2|").split("|");
